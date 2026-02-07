@@ -1,0 +1,11 @@
+[Unit]
+Description=GhostOS Live System Setup
+After=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ghost-live-setup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

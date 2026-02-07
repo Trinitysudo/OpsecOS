@@ -21,7 +21,7 @@ vulkan-radeon
 vulkan-icd-loader
 
 # Desktop Environments
-# Gnome (Specific packages to avoid prompts)
+# Gnome (Minimalist)
 gnome-shell
 gdm
 nautilus
@@ -31,7 +31,6 @@ gnome-keyring
 gnome-session
 gnome-settings-daemon
 xdg-desktop-portal-gnome
-gnome-backgrounds
 gnome-console
 baobab
 gnome-calculator
@@ -59,14 +58,14 @@ xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 swww
 swaylock
+papirus-icon-theme
 
 # Terminals
 kitty
 bash-completion
 
-# Web Browsers
-# Brave is in AUR. Added Firefox as default.
-firefox
+# Web Browsers (Default)
+brave-bin
 
 # Productivity & Media
 obs-studio

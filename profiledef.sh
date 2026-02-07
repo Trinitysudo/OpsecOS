@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # profiledef.sh
 
-iso_name="opsecos"
-iso_label="OPSEC_OS_$(date +%Y%m)"
-iso_publisher="OpsecOS Project <https://github.com/opsecos>"
-iso_application="OpsecOS Live/Installation Media"
+iso_name="ghostos"
+iso_label="GHOST_OS_$(date +%Y%m)"
+iso_publisher="GhostOS Project <https://github.com/ghostos>"
+iso_application="GhostOS Live/Installation Media"
 iso_version="$(date +%Y.%m.%d)"
 install_dir="arch"
 buildmodes=('iso')

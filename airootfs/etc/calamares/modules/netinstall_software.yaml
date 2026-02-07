@@ -1,0 +1,61 @@
+- name: "Browsers"
+  description: "Web Browsers"
+  hidden: false
+  selected: true
+  groups:
+    - name: "Firefox"
+      description: "Mozilla Firefox"
+      packages:
+        - firefox
+    - name: "LibreWolf"
+      description: "Privacy focused Firefox fork"
+      packages:
+        - librewolf-bin
+    - name: "Chromium"
+      description: "Open-source version of Chrome"
+      packages:
+        - chromium
+    - name: "Zen Browser"
+      description: "Performance-oriented Firefox-based browser"
+      packages:
+        - zen-browser-bin
+
+- name: "Privacy & Communication"
+  description: "Secure messaging and privacy tools"
+  hidden: false
+  selected: true
+  groups:
+    - name: "Tor Browser"
+      description: "Anonymity via the Tor Network"
+      packages:
+        - tor-browser-bin
+    - name: "SimpleX Chat"
+      description: "Privacy-first messaging"
+      packages:
+        - simplex-desktop-bin
+    - name: "Telegram"
+      description: "Telegram Desktop"
+      packages:
+        - telegram-desktop
+    - name: "Discord"
+      description: "Discord Chat"
+      packages:
+        - discord
+    - name: "Mullvad VPN"
+      description: "Mullvad VPN Client"
+      packages:
+        - mullvad-vpn-bin
+
+- name: "Development"
+  description: "Coding and IDE tools"
+  hidden: false
+  selected: false
+  groups:
+    - name: "VS Code"
+      description: "Visual Studio Code"
+      packages:
+        - code
+    - name: "IntelliJ IDEA"
+      description: "IntelliJ IDEA Community Edition"
+      packages:
+        - intellij-idea-community-edition
