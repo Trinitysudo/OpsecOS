@@ -11,7 +11,7 @@ rm -rf work out
 # Startup
 echo "Starting OpsecOS Build..."
 mkdir -p out
-sudo mkarchiso -v -w work -o out .
+mkarchiso -v -w work -o out .
 
 echo "Build complete! Your ISO is in the 'out' directory."
 ls -lh out
