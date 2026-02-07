@@ -60,8 +60,11 @@ swww
 swaylock
 papirus-icon-theme
 
-# Terminals
+# Terminals & Shells
 kitty
+zsh
+zsh-completions
+fastfetch
 bash-completion
 
 # Web Browsers (Default)
@@ -94,6 +97,9 @@ pipewire-alsa
 pipewire-pulse
 pipewire-jack
 wireplumber
+plymouth
+grub
+os-prober
 
 # Security & Opsec Peak Optimization
 nmap

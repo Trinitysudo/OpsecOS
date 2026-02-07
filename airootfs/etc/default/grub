@@ -1,0 +1,14 @@
+# GRUB Configuration for GhostOS
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="GhostOS"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash splash loglevel=3 rd.udev.log_priority=3"
+GRUB_CMDLINE_LINUX=""
+
+# Set the custom GhostOS GRUB theme
+GRUB_THEME="/usr/share/grub/themes/ghostos/theme.txt"
+GRUB_GFXMODE=auto
+GRUB_GFXPAYLOAD_LINUX=keep
+
+# Miscellaneous
+GRUB_DISABLE_OS_PROBER=false

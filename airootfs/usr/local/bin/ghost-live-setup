@@ -20,6 +20,7 @@ if [[ -n "$DISPLAY" ]] || [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
     # Set Icons & Cursor
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
+    gsettings set org.gnome.desktop.interface font-name 'Inter 11'
 fi
 
 # Enable NetworkManager

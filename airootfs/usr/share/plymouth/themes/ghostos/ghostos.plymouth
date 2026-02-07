@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=GhostOS
+Description=Minimalist GhostOS splash theme
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/ghostos
+ScriptFile=/usr/share/plymouth/themes/ghostos/ghostos.script
