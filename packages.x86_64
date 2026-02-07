@@ -21,10 +21,25 @@ vulkan-radeon
 vulkan-icd-loader
 
 # Desktop Environments
-# Gnome
-gnome
-gnome-extra
+# Gnome (Specific packages to avoid prompts)
+gnome-shell
 gdm
+nautilus
+gnome-control-center
+gnome-tweaks
+gnome-keyring
+gnome-session
+gnome-settings-daemon
+xdg-desktop-portal-gnome
+gnome-backgrounds
+gnome-console
+baobab
+gnome-calculator
+gnome-disk-utility
+gnome-system-monitor
+evince
+loupe
+snapshot
 
 # Cinnamon
 cinnamon
