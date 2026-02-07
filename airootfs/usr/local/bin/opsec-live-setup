@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# Deploy Custom Calamares Configs
+# We move these at boot to avoid pacman conflicts during build
+[[ -f /etc/calamares/modules/displaymanager.conf.opsec ]] && mv /etc/calamares/modules/displaymanager.conf.opsec /etc/calamares/modules/displaymanager.conf
+[[ -f /etc/calamares/modules/partition.conf.opsec ]] && mv /etc/calamares/modules/partition.conf.opsec /etc/calamares/modules/partition.conf
+[[ -f /etc/calamares/modules/unpackfs.conf.opsec ]] && mv /etc/calamares/modules/unpackfs.conf.opsec /etc/calamares/modules/unpackfs.conf
+[[ -f /etc/calamares/modules/users.conf.opsec ]] && mv /etc/calamares/modules/users.conf.opsec /etc/calamares/modules/users.conf
+
+# Clean up empty shadow file if it exists to allow gpasswd/user generation
+[[ -s /etc/shadow ]] || rm -f /etc/shadow
+
 # Enable NetworkManager
 systemctl enable NetworkManager
 
@@ -13,7 +23,6 @@ systemctl enable apparmor
 systemctl enable dnscrypt-proxy
 
 # Set up autologin for the live user (archiso default is 'arch')
-# But we might want a custom user for OpsecOS live
 mkdir -p /etc/gdm
 cat > /etc/gdm/custom.conf <<EOF
 [daemon]
