@@ -114,3 +114,7 @@ hwinfo
 qt5-xmlpatterns
 squashfs-tools
 kpmcore
+syslinux
+grub
+mtools
+libisoburn
