@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Enable NetworkManager
+systemctl enable NetworkManager
+
+# Enable GDM
+systemctl enable gdm
+
+# Enable AppArmor
+systemctl enable apparmor
+
+# Enable dnscrypt-proxy
+systemctl enable dnscrypt-proxy
+
+# Set up autologin for the live user (archiso default is 'arch')
+# But we might want a custom user for OpsecOS live
+mkdir -p /etc/gdm
+cat > /etc/gdm/custom.conf <<EOF
+[daemon]
+AutomaticLoginEnable=True
+AutomaticLogin=arch
+EOF

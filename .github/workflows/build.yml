@@ -1,0 +1,32 @@
+name: Build OpsecOS ISO
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Archiso
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y arch-install-scripts
+          # Archiso is Arch-specific, but we can run it in a container
+          
+      - name: Build ISO in Arch Container
+        run: |
+          docker run --privileged --rm -v $(pwd):/workspace -w /workspace archlinux:latest bash -c "
+            pacman -Syu --noconfirm archiso &&
+            ./build_iso.sh
+          "
+
+      - name: Upload ISO Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: OpsecOS-ISO
+          path: out/*.iso

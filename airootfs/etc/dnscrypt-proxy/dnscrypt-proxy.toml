@@ -1,0 +1,20 @@
+# dnscrypt-proxy configuration for OpsecOS
+server_names = ['cloudflare', 'google', 'quad9-dnscrypt-ip4-filter-pri']
+listen_addresses = ['127.0.0.1:53']
+max_clients = 250
+ipv4_servers = true
+ipv6_servers = false
+dnscrypt_servers = true
+doh_servers = true
+require_dnssec = true
+require_nolog = true
+require_nofilter = false
+force_tcp = false
+proxy_resolv_conf = true
+
+[static]
+[shorter_manager]
+[source.'public-resolvers']
+urls = ['https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md', 'https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md']
+cache_file = '/var/cache/dnscrypt-proxy/public-resolvers.md'
+min_reliability = 0.95
