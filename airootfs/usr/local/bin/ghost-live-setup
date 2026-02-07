@@ -6,6 +6,8 @@
 [[ -f /etc/calamares/modules/partition.conf.opsec ]] && mv /etc/calamares/modules/partition.conf.opsec /etc/calamares/modules/partition.conf
 [[ -f /etc/calamares/modules/unpackfs.conf.opsec ]] && mv /etc/calamares/modules/unpackfs.conf.opsec /etc/calamares/modules/unpackfs.conf
 [[ -f /etc/calamares/modules/users.conf.opsec ]] && mv /etc/calamares/modules/users.conf.opsec /etc/calamares/modules/users.conf
+[[ -f /etc/calamares/modules/netinstall.conf.opsec ]] && mv /etc/calamares/modules/netinstall.conf.opsec /etc/calamares/modules/netinstall.conf
+[[ -f /etc/calamares/modules/netinstall_software.yaml.opsec ]] && mv /etc/calamares/modules/netinstall_software.yaml.opsec /etc/calamares/modules/netinstall_software.yaml
 
 # Clean up empty shadow file if it exists to allow gpasswd/user generation
 [[ -s /etc/shadow ]] || rm -f /etc/shadow
