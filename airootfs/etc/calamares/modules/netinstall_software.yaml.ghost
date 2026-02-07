@@ -10,7 +10,7 @@
     - name: "LibreWolf"
       description: "Privacy focused Firefox fork"
       packages:
-        - librewolf-bin
+        - librewolf
     - name: "Chromium"
       description: "Open-source version of Chrome"
       packages:
@@ -44,7 +44,7 @@
     - name: "Mullvad VPN"
       description: "Mullvad VPN Client"
       packages:
-        - mullvad-vpn-bin
+        - mullvad-vpn
 
 - name: "Development"
   description: "Coding and IDE tools"

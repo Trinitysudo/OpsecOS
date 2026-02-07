@@ -101,7 +101,7 @@ plymouth
 grub
 os-prober
 
-# Security & Opsec Peak Optimization
+# Security & Ghost Peak Optimization
 nmap
 ufw
 tor

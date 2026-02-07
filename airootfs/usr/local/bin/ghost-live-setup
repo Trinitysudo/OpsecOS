@@ -2,12 +2,12 @@
 
 # Deploy Custom Calamares Configs
 # We move these at boot to avoid pacman conflicts during build
-[[ -f /etc/calamares/modules/displaymanager.conf.opsec ]] && mv /etc/calamares/modules/displaymanager.conf.opsec /etc/calamares/modules/displaymanager.conf
-[[ -f /etc/calamares/modules/partition.conf.opsec ]] && mv /etc/calamares/modules/partition.conf.opsec /etc/calamares/modules/partition.conf
-[[ -f /etc/calamares/modules/unpackfs.conf.opsec ]] && mv /etc/calamares/modules/unpackfs.conf.opsec /etc/calamares/modules/unpackfs.conf
-[[ -f /etc/calamares/modules/users.conf.opsec ]] && mv /etc/calamares/modules/users.conf.opsec /etc/calamares/modules/users.conf
-[[ -f /etc/calamares/modules/netinstall.conf.opsec ]] && mv /etc/calamares/modules/netinstall.conf.opsec /etc/calamares/modules/netinstall.conf
-[[ -f /etc/calamares/modules/netinstall_software.yaml.opsec ]] && mv /etc/calamares/modules/netinstall_software.yaml.opsec /etc/calamares/modules/netinstall_software.yaml
+[[ -f /etc/calamares/modules/displaymanager.conf.ghost ]] && mv /etc/calamares/modules/displaymanager.conf.ghost /etc/calamares/modules/displaymanager.conf
+[[ -f /etc/calamares/modules/partition.conf.ghost ]] && mv /etc/calamares/modules/partition.conf.ghost /etc/calamares/modules/partition.conf
+[[ -f /etc/calamares/modules/unpackfs.conf.ghost ]] && mv /etc/calamares/modules/unpackfs.conf.ghost /etc/calamares/modules/unpackfs.conf
+[[ -f /etc/calamares/modules/users.conf.ghost ]] && mv /etc/calamares/modules/users.conf.ghost /etc/calamares/modules/users.conf
+[[ -f /etc/calamares/modules/netinstall.conf.ghost ]] && mv /etc/calamares/modules/netinstall.conf.ghost /etc/calamares/modules/netinstall.conf
+[[ -f /etc/calamares/modules/netinstall_software.yaml.ghost ]] && mv /etc/calamares/modules/netinstall_software.yaml.ghost /etc/calamares/modules/netinstall_software.yaml
 
 # Clean up empty shadow file if it exists to allow gpasswd/user generation
 [[ -s /etc/shadow ]] || rm -f /etc/shadow
@@ -15,14 +15,18 @@
 # Set Defaults for the Live User (arch)
 # We use gsettings to set wallpaper and icons for Gnome/Cinnamon
 if [[ -n "$DISPLAY" ]] || [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-    # Set Wallpaper (Assuming background_blue.png exists as per user request)
-    gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/ghostos/background_blue.png"
-    gsettings set org.gnome.desktop.background picture-uri-dark "file:///usr/share/backgrounds/ghostos/background_blue.png"
+    # Set Wallpaper
+    gsettings set org.gnome.desktop.background picture-uri "file:///usr/share/backgrounds/ghostos/wallpaper_blue.png"
+    gsettings set org.gnome.desktop.background picture-uri-dark "file:///usr/share/backgrounds/ghostos/wallpaper_blue.png"
     
-    # Set Icons & Cursor
+    # Set Icons & Cursor (Gnome)
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
     gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+
+    # Set Icons & Cursor (Cinnamon)
+    gsettings set org.cinnamon.desktop.interface icon-theme 'Papirus-Dark'
+    gsettings set org.cinnamon.desktop.interface cursor-theme 'Adwaita'
 fi
 
 # Enable NetworkManager
@@ -37,10 +41,14 @@ systemctl enable apparmor
 # Enable dnscrypt-proxy
 systemctl enable dnscrypt-proxy
 
-# Set up autologin for the live user (archiso default is 'arch')
+# Set up autologin for the live user
+# Modern ghostos builds should use 'live' for the live user
+LIVE_USER="live"
+[[ -d /home/arch ]] && LIVE_USER="arch"
+
 mkdir -p /etc/gdm
 cat > /etc/gdm/custom.conf <<EOF
 [daemon]
 AutomaticLoginEnable=True
-AutomaticLogin=arch
+AutomaticLogin=${LIVE_USER}
 EOF
