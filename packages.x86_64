@@ -89,9 +89,8 @@ tor
 torsocks
 veracrypt
 wireshark-qt
-gnu-netcat
+openbsd-netcat
 rkhunter
-chkrootkit
 firejail
 apparmor
 macchanger
@@ -107,8 +106,9 @@ noto-fonts-emoji
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 
-# Installer
+# Installer (From Chaotic-AUR)
 calamares
+calamares-config-archlinux
 ckbcomp
 hwinfo
 qt5-xmlpatterns
