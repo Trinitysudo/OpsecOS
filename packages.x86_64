@@ -120,9 +120,8 @@ noto-fonts-emoji
 ttf-font-awesome
 ttf-jetbrains-mono-nerd
 
-# Installer (From Chaotic-AUR)
+# Installer (From EndeavourOS)
 calamares
-calamares-config-archlinux
 ckbcomp
 hwinfo
 qt5-xmlpatterns
