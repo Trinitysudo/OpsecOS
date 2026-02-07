@@ -22,8 +22,9 @@ jobs:
             # Use the local pacman.conf for the container to enable EndeavourOS
             cp /workspace/pacman.conf /etc/pacman.conf
             
-            # Note: We are using SigLevel = Never for EndeavourOS in pacman.conf 
-            # to avoid complex keyring imports during CI.
+            # Create symlink for live setup service
+            mkdir -p /workspace/airootfs/etc/systemd/system/multi-user.target.wants/
+            ln -sf /etc/systemd/system/ghost-live-setup.service /workspace/airootfs/etc/systemd/system/multi-user.target.wants/ghost-live-setup.service
             
             # Install build tools
             pacman -Syu --noconfirm archiso grub syslinux mtools libisoburn &&
